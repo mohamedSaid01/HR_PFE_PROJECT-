@@ -2,24 +2,29 @@ import { Field } from 'formik';
 import React from 'react';
 
 interface InputProps {
-  value?: string;
+  text?: string;
   type?: string;
   placeholder?: string;
   name?: string;
   id?: string;
+  logo?:any
 }
 
 function Input(props: InputProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={props.name} className="block mb-2 text-sm font-medium text-black-900 font-normal text-xs">{props.value}</label>
+    <div className="flex flex-col gap-y-2">
+      <label htmlFor={props.name} className="block mb-2 text-sm font-medium text-black-900 font-normal text-xs">{props.text}</label>
       <div className="relative">
+      <div className="absolute text-gray-600 dark:text-gray-400 flex items-center pl-3 h-full">
+        <img className="dark:hidden" src={props?.logo}/>
+        <img className="dark:block hidden" src={props?.logo}/>
+      </div>
         <Field
           id={props.id}
           name={props.name}
           type={props.type} 
           placeholder={props.placeholder} 
-          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-#A2A2A7-400 focus:outline-none text-xs sm:w-64 md:w-80 lg:w-96 xl:w-96"
+          className="text-gray-600 font-normal h-10 flex items-center pl-10 text-xs border border-gray-300 rounded focus:outline-none w-96"
         />
       </div>
     </div>
