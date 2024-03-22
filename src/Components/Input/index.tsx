@@ -1,5 +1,5 @@
 import { Field } from 'formik';
-import React from 'react';
+import './style.css'
 
 interface InputProps {
   text?: string;
@@ -7,7 +7,8 @@ interface InputProps {
   placeholder?: string;
   name?: string;
   id?: string;
-  logo?:any
+  logo?:any;
+  width?:string;
 }
 
 function Input(props: InputProps) {
@@ -19,12 +20,13 @@ function Input(props: InputProps) {
         <img className="dark:hidden" src={props?.logo}/>
         <img className="dark:block hidden" src={props?.logo}/>
       </div>
+      
         <Field
           id={props.id}
           name={props.name}
           type={props.type} 
           placeholder={props.placeholder} 
-          className="text-gray-600 font-normal h-10 flex items-center pl-10 text-xs border border-gray-300 rounded focus:outline-none w-96"
+          className={`text-gray-600 font-normal h-10 flex items-center  pl-10 text-xs border border-gray-300 rounded-lg focus:outline-none ${props.width}`}
         />
       </div>
     </div>
@@ -32,4 +34,3 @@ function Input(props: InputProps) {
 }
 
 export default Input;
-

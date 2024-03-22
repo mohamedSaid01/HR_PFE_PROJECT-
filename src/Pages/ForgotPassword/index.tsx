@@ -17,18 +17,21 @@ function ForgotPassword() {
                   validationSchema={Yup.object().shape({
                     email: Yup.string().email('Invalid email address').required(),
                   })}
-                  onSubmit={(values) => {
+                  onSubmit={(values, { setSubmitting }) => {
                     console.log(values);
+                    setSubmitting(false);
                   }}
                    >
         {
           (
             {errors, touched}
           ) => (
-          <Form className='flex flex-col gap-y-8 h-25'>
-              <Input id='email' type="email" placeholder="Email Address" text="Email Address" name="email" logo={email} />
+          <Form className='flex flex-col gap-y-6 h-25'>
+            <div className='flex flex-col gap-4'>
+              <Input id='email' type="email" placeholder="Email Address" text="Email Address" name="email" logo={email} width='w-96' />
               {touched?.email && <ErrorMessage name='email' component={'div'} className="text-red-500 text-xs"/>}
-              <NavLink to='/resetpassword'><Button value='Send reset instruction' width='w-96'/></NavLink>
+            </div>
+             <NavLink to='/resetpassword'><Button value='Send reset instruction' width='w-96'/></NavLink>
         </Form>
           )
         }

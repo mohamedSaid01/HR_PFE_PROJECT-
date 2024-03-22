@@ -1,6 +1,6 @@
 
 interface ButtonProps {
-    value: string;
+    value?: string;
     width?: string;
 }
 

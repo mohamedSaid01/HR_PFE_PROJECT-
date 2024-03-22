@@ -24,9 +24,11 @@ function ResetPassword() {
           (
             {errors, touched}
           ) => (
-          <Form className='flex flex-col gap-y-8 h-25'>
-              <Input id='code' type="number" placeholder="Code" text="Code" name="code"/>
+          <Form className='flex flex-col gap-y-6 h-25'>
+            <div className='flex flex-col gap-4'>
+              <Input id='code' type="number" placeholder="Code" text="Code" name="code" width='w-96'/>
               {touched?.code && <ErrorMessage name='code' component={'div'} className="text-red-500 text-xs"/>}
+            </div>
               <NavLink to='/createnewpassword'><Button value='Enter reset code' width='w-96'/></NavLink>
         </Form>
           )

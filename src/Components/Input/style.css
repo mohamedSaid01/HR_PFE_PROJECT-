@@ -1,0 +1,22 @@
+
+
+/* Style lorsque l'input est en focus */
+input[type="date"]:focus {
+  border-color: #007bff; /* Changement de couleur de la bordure */
+}
+
+/* Style lorsque l'input est désactivé */
+input[type="date"]:disabled {
+  background-color: #f0f0f0; /* Couleur de fond grise */
+  cursor: not-allowed; /* Curseur non autorisé */
+}
+
+/* Style pour l'icône du calendrier */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none; /* Masquer l'icône du calendrier dans les navigateurs WebKit */
+}
+
+/* Style pour l'icône du calendrier dans Firefox */
+input[type="date"] {
+  -moz-appearance: textfield; /* Afficher l'icône du calendrier dans Firefox */
+}

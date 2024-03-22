@@ -4,8 +4,8 @@ import Input from '../../Components/Input';
 import Description from '../../Components/Description';
 import Button from '../../Components/Button';
 import { NavLink } from 'react-router-dom';
-import email from '../../Assets/Icons/logoEmail.svg'
-import password from '../../Assets/Icons/logoPassword.svg'
+import logoEmail from '../../Assets/Icons/logoEmail.svg'
+import logoPassword from '../../Assets/Icons/logoPassword.svg'
 
 
 
@@ -31,13 +31,17 @@ function Login() {
           (
             {errors, touched}
           ) => (
-          <Form className='flex flex-col gap-y-10'>
-              <Input id='email' type="email" placeholder="Email Address" text="Email Address" name="email" logo={email} />
+          <Form className='flex flex-col gap-y-6 h-25'>
+            <div className='flex flex-col gap-4'>
+              <Input id='email' type="email" placeholder="Email Address" text="Email Address" name="email" logo={logoEmail} width='w-96' />
               {touched?.email && <ErrorMessage name='email' component={'div'} className="text-red-500 text-xs"/>}
-              <Input id='password' type="password" placeholder="Password" text="Password" name="password" logo={password}/>
-              {touched?.password && <ErrorMessage name='password' component={'div'} className="text-red-500 text-xs"/>}
-              <Button value='Login' width='w-96'/>
-        </Form>
+            </div>
+              <div className='flex flex-col gap-4'> 
+                <Input id='password' type="password" placeholder="Password" text="Password" name="password" logo={logoPassword} width='w-96'/>
+                {touched?.password && <ErrorMessage name='password' component={'div'} className="text-red-500 text-xs"/>}
+              </div>
+              <NavLink to="/dashboard"><Button value='Login' width='w-96'/></NavLink>
+         </Form>
           )
         }
       </Formik>    
